@@ -2,7 +2,7 @@
 name: User case template
 about: A template for creating user cases
 title: 'UC-XXX: Title'
-labels: user case
+labels: use case
 assignees: SmartGourd
 
 ---
