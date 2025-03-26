@@ -2,7 +2,7 @@
 name: User story template
 about: A template for creating user stories
 title: 'US-XXX: Title'
-labels: use story
+labels: user story
 assignees: SmartGourd
 
 ---
