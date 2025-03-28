@@ -1,0 +1,38 @@
+@startuml
+
+actor Učitel as T
+actor Student as S
+
+
+usecase "Ověření kvality vygenerovaných materiálů" as UC1
+usecase "Sdílení materiálů ke studentům" as UC2
+usecase "Notifikace studentů" as UC3
+usecase "Možnost stažení materiálů" as UC4
+usecase "Formát materiálů" as UC5
+usecase "Vyhledávání v materiálech" as UC6
+usecase "Trénink na materiálu ve formátu otázek s výběrem odpovědí kde je jedna správná" as UC9
+usecase "Trénink na poznávačku" as UC10
+usecase "Přidání komentáře nebo návrhu úpravy ve studijním materiálu" as UC8
+usecase "Úprava studijního materiálu" as UC7
+usecase "Generování studijních materiálů" as UC11
+
+T -- UC2
+T -- UC5
+T -- UC7
+T -- UC8
+
+UC5 -- UC11
+
+S -- UC3
+S -- UC4
+S -- UC6
+S -- UC9
+S -- UC10
+
+UC11 -- UC2
+
+UC1 .down.> UC11 : <<extend>>
+UC1 .down.> UC4 : <<include>>
+UC1 .down.> UC6 : <<include>>
+
+@enduml
