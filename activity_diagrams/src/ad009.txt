@@ -1,0 +1,21 @@
+@startuml
+start
+:Student otevře odkaz na materiál;
+:Student si navolí jaké skupiny otázek chce trénovat (pokud jich má materiál více);
+:Studentovi se vždy zobrazí zadání otázky a možné odpovědi;
+if (Student kliknul na správnou odpověď) then (ano)
+:Studentovi se zobrazí posunutí progress baru levelu znalosti daného materiálu;
+else (ne)
+:Studentovi se zobrazí červené pozadí a zvýrazní se správná odpověď a progress bar se sníží;
+:Student klikne na tuto odpověď;
+endif
+:Studentovi se zobrazí další otázka a odpovědi;
+:Student dosáhne milestonu ve znalosti materiálu, kterého chtěl dosáhnout;
+if (Student kliknul na tlačítko Ukončit trénink) then (ano)
+:Studentovi se uloží jeho progress na materiálu a je mu ukázáno kolik peněz tréninkem vydělal;
+else (ne)
+:Progress studenta systém ukládá průběžně a příště tedy může začít kde nyní skončil;
+end
+endif
+stop
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+start
+:Učitel se přesune na stránku pro vytváření materiálů;
+:Program se učitele zeptá na zdroje;
+if (Učitel má vlastní zdroje) then (ano)
+:Učitel nahraje zdroje, ze kterých chce vytvořit materiál;
+else (ne)
+:Učitel zvolí možnost, že AI si najde vlastní zdroje;
+endif
+:Učitel zadá téma vytvořeného materiálu;
+:Program zobrazí nabídku podporovaných formátů;
+if (V nabídce je požadovaný formát) then (ano)
+:Učitel vybere z nabídky formát materiálu, který chce vytvořit;
+else (ne)
+:Program zobrazí formulář pro popis nového formátu;
+:Učitel popíše nový formát;
+:Program vybere nově vytvořený formát pro tvorbu aktuálního materiálu;
+endif
+:Program zobrazí vytvořený materiál;
+stop
+@enduml
