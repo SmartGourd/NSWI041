@@ -1,38 +1,53 @@
 @startuml
+left to right direction
 
 actor Učitel as T
 actor Student as S
 
+package "Generování a správa materiálů" {
+    usecase "Generování studijních materiálů" as UC11
+    usecase "Ověření kvality vygenerovaných materiálů" as UC1
+    usecase "Formát materiálů" as UC5
+    usecase "Úprava studijního materiálu" as UC7
+}
 
-usecase "Ověření kvality vygenerovaných materiálů" as UC1
-usecase "Sdílení materiálů ke studentům" as UC2
-usecase "Notifikace studentů" as UC3
-usecase "Možnost stažení materiálů" as UC4
-usecase "Formát materiálů" as UC5
-usecase "Vyhledávání v materiálech" as UC6
-usecase "Trénink na materiálu ve formátu otázek s výběrem odpovědí kde je jedna správná" as UC9
-usecase "Trénink na poznávačku" as UC10
-usecase "Přidání komentáře nebo návrhu úpravy ve studijním materiálu" as UC8
-usecase "Úprava studijního materiálu" as UC7
-usecase "Generování studijních materiálů" as UC11
+package "Zpřístupnění" {
+    usecase "Sdílení materiálů ke studentům" as UC2
+    usecase "Notifikace studentů" as UC3
+    usecase "Možnost stažení materiálů" as UC4
+}
 
-T -- UC2
-T -- UC5
-T -- UC7
-T -- UC8
+package "Studijní interakce" {
+    usecase "Vyhledávání v materiálech" as UC6
+    usecase "Trénink s výběrem odpovědi" as UC9
+    usecase "Trénink na poznávačku" as UC10
+}
 
-UC5 -- UC11
+package "Zpětná vazba" {
+    usecase "Přidání komentáře nebo návrhu úpravy" as UC8
+}
 
-S -- UC3
-S -- UC4
-S -- UC6
-S -- UC9
-S -- UC10
+T --> UC11
+T --> UC2
+T --> UC7
+T --> UC8
 
-UC11 -- UC2
+S --> UC3
+S --> UC4
+S --> UC6
+S --> UC9
+S --> UC10
+S --> UC8
 
-UC1 .down.> UC11 : <<extend>>
-UC1 .down.> UC4 : <<include>>
-UC1 .down.> UC6 : <<include>>
+UC11 --> UC2 : <<include>>
+UC11 --> UC5 : <<include>>
+UC11 <-- UC1 : <<extend>>
+
+UC2 --> UC3 : <<include>>
+UC2 --> UC4 : <<include>>
+
+UC6 --> UC4 : <<include>>
+
+UC7 --> UC11 : <<extend>>
 
 @enduml
