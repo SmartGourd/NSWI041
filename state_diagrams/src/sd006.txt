@@ -1,0 +1,16 @@
+@startuml
+hide empty description
+state "Nový materiál otevřen" as novy
+state "Výběr zdrojů" as zdroje
+state "Zvolení tématu" as tema
+state "Výběr formátu" as format
+state "Vytvoření nového formátu" as novyf
+
+[*] -> novy
+format -> [*] : materiál vytvořen
+novy -> zdroje
+zdroje -> tema
+tema -> format
+format --> novyf
+novyf --> format
+@enduml
