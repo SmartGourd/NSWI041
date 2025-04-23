@@ -1,0 +1,72 @@
+@startuml
+
+class Človek {
+  jméno
+  vek
+}
+
+class Kontakt {
+  typ
+  hodnota
+}
+
+class Učitel {
+}
+
+class Student {
+    ročník
+    obor
+}
+class modelAi {
+  jméno
+  popis
+  typ
+  model
+}
+
+class Materiál {
+  nazev
+  popis
+  typ
+  obsah
+}
+
+class zdroj {
+  typ
+  obsah
+}
+
+Učitel -r-|> Človek
+Student -r-|> Človek
+Človek "1" *-- "1..*" Kontakt: obsahuje
+
+
+Učitel "1" --> "0..*" Materiál : autor
+Učitel "0..*" --> "0..*" Student : učí
+Student "0..*" --> "0..*" Materiál: má oprávnění k přístupu
+Učitel "0..*" --> "0..*" modelAi : zadává požadavky
+
+modelAi "1"  --> "0..*" Materiál : generuje
+Materiál "1..*" --> "0..*" zdroj : využívá
+modelAi "1..*" --> "0..*" zdroj : využívá
+@enduml
+###člověk
+Lidská bytost, která se zajímá o učení za pomocí modely Ai.
+
+###kontakt
+Způsob jakým je člověk kontaktován.
+
+###učitel
+Člověk který učí studenty.
+
+###student
+Osoba která se učí od učitele.
+
+###modelAi
+Model umělé inteligence, který generuje materiály pro studenty za dozoru učitele.
+
+###materiál
+Věc která je vytvořena modelem AI a je určena pro studenty.
+
+###zdroj
+Informace, kterou modelAi využije, při vytváření materiálů.
