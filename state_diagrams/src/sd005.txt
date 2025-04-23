@@ -1,0 +1,15 @@
+@startuml
+hide empty description
+state "Zobrazení materiálů" as zobrazeni
+state "Výběr značek" as vybrani
+state "Vyhledání textu" as text
+state "Výběr materiálu" as mat
+
+[*] --> zobrazeni
+mat -> [*]
+zobrazeni --> vybrani
+vybrani --> zobrazeni
+zobrazeni --> text
+text --> zobrazeni
+zobrazeni -> mat
+@enduml
