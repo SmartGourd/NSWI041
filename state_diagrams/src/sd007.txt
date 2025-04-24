@@ -1,0 +1,14 @@
+@startuml
+hide empty description
+state "Zobrazení materiálů" as zobrazeni
+state "Úprava materiálu" as uprava
+state "Zobrazení komentářů" as koment
+state "Uložení změn" as uloz
+
+[*] -> zobrazeni
+uloz -> [*]  : materiál změněn
+zobrazeni --> uprava
+uprava --> koment
+koment --> uprava
+uprava -> uloz
+@enduml
