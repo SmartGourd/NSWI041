@@ -1,0 +1,17 @@
+@startuml
+hide empty description
+state "Zobrazení materiálů" as zobrazeni
+state "Úprava materiálu" as uprava
+state "Označení oblasti" as ozn
+state "Přidání komentáře" as koment
+state "Uložení změn" as uloz
+
+[*] -> zobrazeni
+uloz -> [*]  : materiál změněn
+ozn -> ozn : invalidní oblast označena
+zobrazeni --> uprava
+uprava --> ozn
+ozn --> koment
+koment -> uloz
+koment -> ozn
+@enduml
