@@ -17,7 +17,7 @@ class Student {
     ročník
     obor
 }
-class modelAi {
+class ModelAi {
   jméno
   popis
   typ
@@ -31,7 +31,7 @@ class Materiál {
   obsah
 }
 
-class zdroj {
+class Zdroj {
   typ
   obsah
 }
@@ -44,11 +44,11 @@ Student -r-|> Človek
 Učitel "1" --> "0..*" Materiál : autor
 Učitel "0..*" --> "0..*" Student : učí
 Student "0..*" --> "0..*" Materiál: má oprávnění k přístupu
-Učitel "0..*" --> "0..*" modelAi : zadává požadavky
+Učitel "0..*" --> "0..*" ModelAi : zadává požadavky
 
-modelAi "1"  --> "0..*" Materiál : generuje
-Materiál "1..*" --> "0..*" zdroj : využívá
-modelAi "1..*" --> "0..*" zdroj : využívá
+ModelAi "1"  --> "0..*" Materiál : generuje
+Materiál "1..*" --> "0..*" Zdroj : využívá
+ModelAi "1..*" --> "0..*" Zdroj : využívá
 @enduml
 ###člověk
 Lidská bytost, která se zajímá o učení za pomocí modely Ai.
