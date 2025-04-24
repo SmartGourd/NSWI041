@@ -1,0 +1,16 @@
+@startuml
+hide empty description
+state "Zobrazení materiálů" as zobrazeni
+state "Výběr skupiny" as vyber
+state "Zobrazení otázky" as otazka
+state "Odpověď na otázku" as odp
+state "Uložení postupu" as uloz
+
+[*] -> zobrazeni
+uloz -> [*] 
+zobrazeni --> vyber
+vyber --> otazka
+otazka --> odp
+odp -> otazka
+odp -> uloz
+@enduml
