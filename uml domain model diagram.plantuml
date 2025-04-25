@@ -17,12 +17,7 @@ class Student {
     ročník
     obor
 }
-class ModelAi {
-  jméno
-  popis
-  typ
-  model
-}
+
 
 class Materiál {
   nazev
@@ -44,11 +39,10 @@ Student -r-|> Človek
 Učitel "1" --> "0..*" Materiál : autor
 Učitel "0..*" --> "0..*" Student : učí
 Student "0..*" --> "0..*" Materiál: má oprávnění k přístupu
-Učitel "0..*" --> "0..*" ModelAi : zadává požadavky
 
-ModelAi "1"  --> "0..*" Materiál : generuje
+
 Materiál "1..*" --> "0..*" Zdroj : využívá
-ModelAi "1..*" --> "0..*" Zdroj : využívá
+
 @enduml
 ###člověk
 Lidská bytost, která se zajímá o učení za pomocí modely Ai.
@@ -61,9 +55,6 @@ Způsob jakým je člověk kontaktován.
 
 ###student
 Osoba která se učí od učitele.
-
-###modelAi
-Model umělé inteligence, který generuje materiály pro studenty za dozoru učitele.
 
 ###materiál
 Věc která je vytvořena modelem AI a je určena pro studenty.
