@@ -1,15 +1,12 @@
 @startuml
 start
 :Student se přesune na obrazovku se seznamem svých materiálů;
-:Program nabídne seznam všech značek použitých v jeho materiálech;
 repeat
-:Student vybere jednu nebo více značek;
-:Program schová materiály, které nemají vybrané značky;
-repeat while (seznam obsahuje materiál) is (ne) not (ano)
+:Student vybere jednu nebo více značek ze seznamu;
+repeat while (seznam obsahuje materiál s vybranými značkami) is (ne) not (ano)
 if (seznam je stále příliš dlouhý) then (ano)
-:Program zobrazí pole pro vyhledávání;
-:Student zadá text, o kterém si myslí, že se vyskytuje v hledaném materiálu;
-:Program schová materiály, které tento text neobsahují;
+:Student zadá text do pole pro vyhledávání, o kterém si myslí, že se vyskytuje v hledaném materiálu;
+else (ne)
 endif
 :Student si vybere hledaný materiál;
 stop
