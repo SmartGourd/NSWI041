@@ -1,20 +1,17 @@
 @startuml
 start
 :Učitel v aplikaci zobrazí materiály, které smí upravovat;
-:Systém zobrazí materiály, které může uživatel upravovat;
 if (Žádný takový materiál není) then (ano)
 end
 endif
 :Učitel vybere materiál, který chce upravit;
 :Učitel otevře materiál v režimu úprav;
-:Systém v materiálu zobrazí komentáře a návrhy úpravy;
 if (Existuje vyhovující vypracovaný návrh úpravy) then (ano)
-:Učitel přijme návrh úpravy;
-:Systém změní zasaženou část dokumentu na navrhovanou úpravu;
+:Učitel přijme návrh úpravy a změní zasaženou část dokumentu na navrhovanou úpravu;
 else (ne)
 :Učitel vybere a přepíše (upraví) část materiálu;
 endif
 :Učitel změny uloží;
-:Systém upozorní uživatele, kteří s materiálem interagovali, o změně materiálu;
+:Notifikační systém upozorní uživatele, kteří s materiálem interagovali, o změně materiálu;
 stop
 @enduml

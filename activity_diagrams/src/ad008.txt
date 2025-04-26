@@ -1,21 +1,18 @@
 @startuml
 start
 :Student si otevře studijní materiál;
-:Systém zobrazí materiál;
 if (Může student komentovat?) then (ne)
 stop
 endif
 repeat
 :Student vybere text nebo zónu v materiálu (např. odstavec, definici...);
-backward:Systém upozorní studenta, že zvolenou část není možné komentovat;
+backward:Student zvolí část, kterou může komentovat;
 repeat while (je označená nevalidní oblast (např. chráněný nebo prázdný blok)) is (ano) not (ne)
 :Student zvolí možnost „Přidat komentář“ nebo „Navrhnout úpravu“;
 repeat
 :Student vloží komentář nebo návrh změny (např. doplňující otázku nebo upozornění na chybu);
-backward:Systém zobrazí upozornění, že komentář nesmí být prázdný;
+backward:Student napíše neprázdný komentář;
 repeat while (komentář je prázdný) is (ano) not (ne)
 :Student odešle komentář nebo návrh změny;
-:Systém zobrazí komentář v materiálu (např. v postranním panelu nebo formou poznámky);
-:Systém informuje učitele o novém komentáři nebo návrhu úpravy;
 stop
 @enduml
